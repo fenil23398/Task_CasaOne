@@ -26,20 +26,20 @@ export default class Layout extends Component {
         return (
             <div>
                 <header className="App-header">
-                    <h1> Inside Layout </h1>
-                  
+                                     
                         <div className="card-content">
                             <Card body>
-                                <CardTitle>Special Title Treatment</CardTitle>
                                 <CardText>
                                     <Row>
                                         <Col lg="4" md="6">
+                                            <h6>Billing Address</h6>
                                             <Address
                                                 title={"Billing Address"}
                                                 addressDetails={BillingData[0]}
                                             />
                                         </Col>
                                         <Col lg="4" md="6">
+                                            <h6>Shipping Address</h6>
                                             <Address
                                                 title={"Shipping Address"}
                                                 addressDetails={ShippingData[0]}

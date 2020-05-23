@@ -22,3 +22,6 @@
 .App-link {
   color: #61dafb;
 }
+.form-group {
+  margin-bottom: 0.7rem !important;
+}
