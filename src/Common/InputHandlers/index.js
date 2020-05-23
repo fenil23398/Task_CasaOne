@@ -9,7 +9,7 @@ import {
 
 const InputValidator = (props) => {
     console.log("Props Values r ",props);
-    const {Value,PlaceHolder,Name,Type,Error} = props;
+    const {Value,PlaceHolder,Name,Type,Error,ReadOnly} = props;
     return (
         <div className="App">
             {console.log("Value ",PlaceHolder )}
@@ -24,7 +24,7 @@ const InputValidator = (props) => {
                    onChange={(e) => props.ChangeEvent(e)}
                    onBlur={() => props.BlurEvent(Name)}
                    invalid = {Error !== ''}
-
+                   readOnly = {ReadOnly}
                />
                <FormFeedback invalid>
                   {Error}

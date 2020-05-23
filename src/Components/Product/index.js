@@ -1,23 +1,31 @@
 import React from 'react';
 import ProductDetail from "./ProductDetail";
-import { Table,Row,Col } from 'reactstrap';
+import { Table, Row, Col } from 'reactstrap';
+import CustomButton from "../../Common/Button";
+
 
 function Product(props) {
+    const onAddProduct = () => {
+        console.log("Add Product Clicked");
+    }
+    const onSaveClicked = () => {
+        console.log("Save Button Clicked");
+    }
     return (
         <div>
             <Row>
                 <Col lg="11" md="11">
-            <Table>
-               
+                    <Table>
+
                         <thead>
                             <tr>
-                            <th style={{ textAlign: 'left' }}>Product Id</th>
-                            <th style={{ textAlign: 'left' }}>Product Name</th>
-                            <th style={{ textAlign: 'left' }}>Qty</th>
-                            <th style={{ textAlign: 'left' }}>Unit Price</th>                               
-                            <th style={{ textAlign: 'left' }}>Total Price</th>
-                            <th style={{ textAlign: 'left' }}>Notes</th>
-                            <th></th>
+                                <th style={{ textAlign: 'left' }}>Product Id</th>
+                                <th style={{ textAlign: 'left' }}>Product Name</th>
+                                <th style={{ textAlign: 'left' }}>Qty</th>
+                                <th style={{ textAlign: 'left' }}>Unit Price</th>
+                                <th style={{ textAlign: 'left' }}>Total Price</th>
+                                <th style={{ textAlign: 'left' }}>Notes</th>
+                                <th></th>
 
                                 {/* <Col lg="2" md="2">
 
@@ -41,21 +49,32 @@ function Product(props) {
                                     <th>Total Price</th>
                                 </Col> */}
                             </tr>
-                            
+
                         </thead>
-                       
-                <tbody>
-                    {
-                        props.data.map(product => (
-                            <ProductDetail
-                             data={product}
+
+                        <tbody>
+                            {
+                                props.data.map(product => (
+                                    <ProductDetail
+                                        data={product}
+                                    />
+                                )
+                                )
+                            }
+                            <CustomButton
+                                ButtonClicked={onAddProduct}
+                                Text={"ADD PRODUCT"}
+                                SizeForButton={"sm"}
+                                ButtonColor = {"primary"}
                             />
-                            )
-                        )
-                    }
-                </tbody>
-            </Table>
-            </Col>
+                        </tbody>
+                    </Table>
+                    <CustomButton
+                        ButtonClicked={onSaveClicked}
+                        Text={"SAVE"}
+                        ButtonColor = {"primary"}
+                    />
+                </Col>
             </Row>
         </div>
     )

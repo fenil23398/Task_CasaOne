@@ -3,10 +3,10 @@
 }
 
 .card-content {
-  padding: 5.2rem 4.2rem 0.2rem 4.2rem;
+  padding: 2.2rem 4.2rem 0.2rem 4.2rem;
 }
 .card-content-two {
-  padding: 2rem 4.2rem 5.2rem 4.2rem;
+  padding: 2rem 4.2rem 2.2rem 4.2rem;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -24,4 +24,12 @@
 }
 .form-group {
   margin-bottom: 0.7rem !important;
+}
+.form-control{
+  height : calc(1.4em + .50rem) !important;
+  font-size: 0.9rem !important;
+}
+.input-group-text{
+  font-size: .7rem !important;
+  padding: .300rem .70rem !important;
 }

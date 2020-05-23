@@ -5,9 +5,12 @@ import { Button } from 'reactstrap';
 function CustomButton(props) {
   return (
     <Button
-        onClick = {() => props.buttonClicked()} 
-        color="primary"
-    >primary</Button>
+        onClick = {() => props.ButtonClicked()} 
+        color={props.ButtonColor}
+        size={props.SizeForButton}
+    >
+    {props.Text}
+    </Button>
   );
 }
 

@@ -72,17 +72,22 @@ export default class Address extends Component {
         }
         const touched = { ...this.state.touched }
         if (touched.firstName)
-            errors.firstName = customValidations(addressObj.firstName,1,3,10,0);
+            errors.firstName = customValidations(addressObj.firstName,1,3,10,0,1);
         if (touched.lastName)
-            errors.lastName = customValidations(addressObj.lastName,1,3,10,0);
+            errors.lastName = customValidations(addressObj.lastName,1,3,10,0,1);
         if(touched.state)
-            errors.state = customValidations(addressObj.state,1,1,0,0);
+            errors.state = customValidations(addressObj.state,1,1,0,0,1);
         if(touched.city)
-            errors.city = customValidations(addressObj.city,1,2,0,0);
+            errors.city = customValidations(addressObj.city,1,2,0,0,1);
         if(touched.zipCode)
             errors.zipCode = customValidations(addressObj.zipCode,1,2,0,1);
         if(touched.country)
-            errors.country = customValidations(addressObj.country,1,2,0,0);
+            errors.country = customValidations(addressObj.country,1,2,0,0,1);
+        if(touched.addressLine1)
+            errors.addressLine1 = customValidations(addressObj.addressLine1,1,4,0,0,0);
+        if(touched.addressLine2)
+            errors.addressLine2 = customValidations(addressObj.addressLine2,1,4,0,0,0);
+        
         return errors;
     }
     handleInputChange = (event) => {

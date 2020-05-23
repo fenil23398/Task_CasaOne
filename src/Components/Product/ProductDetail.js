@@ -4,6 +4,8 @@ import { Row,Col } from 'reactstrap';
 //Internal Files
 import  InputAddons  from "../../Common/InputHandlers/InputAdons";
 import InputValidator from "../../Common/InputHandlers";
+import CustomButton from "../../Common/Button";
+import { customValidations } from "../Data/GeneralMethods";
 
 
 export default class ProductDetail extends Component {
@@ -26,7 +28,9 @@ export default class ProductDetail extends Component {
             }
         }
     }
-
+    onDelete = () => {
+        console.log("Inside Delete");
+    }
     handleBlur = (field) => {
         console.log("handleBlur field", field, "event ");
         //Need to copy old Touched state first and dn update field
@@ -61,14 +65,33 @@ export default class ProductDetail extends Component {
             }
         })
     }
+
+    validate = (productObj) => {
+        console.log("Inside Validate Product",this.state.touched);
+        const errors = {
+            productId : '',
+            price : '',
+            productName : '',
+            qty : ''
+        }
+        const touched = { ...this.state.touched }
+        if (touched.productId)
+            errors.productId = customValidations(productObj.productId,1,1,0,0);
+        if (touched.price)
+            errors.price = customValidations(productObj.price,1,1,0,1);
+        if(touched.productName)
+            errors.productName = customValidations(productObj.productName,1,1,0,0,1);
+        if(touched.qty)
+            errors.qty = customValidations(productObj.qty,1,1,0,1);
+        return errors;
+    }
+
     render() {
-        console.log("Props For More Product Detail ",this.props)
+        const errors = this.validate(this.state.product)
         const productDetail = {...this.state.product}
         return (
-           
-            <tr>
-                
-            <td style={{ textAlign: 'left' }}>
+           <tr>
+             <td style={{ textAlign: 'left' }}>
                 <InputAddons
                     Type = {"text"}
                     Name = {"productId"}
@@ -76,7 +99,7 @@ export default class ProductDetail extends Component {
                     Value = {productDetail.productId}
                     BlurEvent = {this.handleBlur}
                     ChangeEvent = {this.handleInputChange}
-                    // Error = {errors.firstName}
+                    Error = {errors.productId}
                 />
             </td>
            
@@ -88,7 +111,7 @@ export default class ProductDetail extends Component {
                     Value = {productDetail.productName}
                     BlurEvent = {this.handleBlur}
                     ChangeEvent = {this.handleInputChange}
-                    // Error = {errors.lastName}
+                    Error = {errors.productName}
                  />
             </td>
             <td  style={{ textAlign: 'left' }}>
@@ -99,7 +122,7 @@ export default class ProductDetail extends Component {
                     Value = {productDetail.qty}
                     BlurEvent = {this.handleBlur}
                     ChangeEvent = {this.handleInputChange}
-                    // Error = {errors.lastName}
+                    Error = {errors.qty}
                  />
             </td>
             <td  style={{ textAlign: 'left' }}>
@@ -110,7 +133,7 @@ export default class ProductDetail extends Component {
                     Value = {productDetail.price}
                     BlurEvent = {this.handleBlur}
                     ChangeEvent = {this.handleInputChange}
-                    // Error = {errors.lastName}
+                    Error = {errors.price}
                  />
             </td>
 
@@ -122,7 +145,8 @@ export default class ProductDetail extends Component {
                     Value = {productDetail.totalPrice}
                     BlurEvent = {this.handleBlur}
                     ChangeEvent = {this.handleInputChange}
-                    // Error = {errors.lastName}
+                    ReadOnly = {"1"}
+                    Error = {''}
                  />
             </td>
 
@@ -134,9 +158,18 @@ export default class ProductDetail extends Component {
                     Value = {productDetail.notes}
                     BlurEvent = {this.handleBlur}
                     ChangeEvent = {this.handleInputChange}
-                    // Error = {errors.lastName}
+                    Error = {''}
                  />
             </td>
+
+            <td  style={{ textAlign: 'left' }}>
+                <CustomButton
+                        ButtonClicked={this.onDelete}
+                        Text={"Delete"}
+                        ButtonColor = {"danger"}
+                />
+            </td>
+            
           </tr>
           
         )
