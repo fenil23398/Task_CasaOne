@@ -6,8 +6,6 @@ import {
     Row,
     Col,
     Card,
-    Button,
-    CardTitle,
     CardText
 } from 'reactstrap';
 
@@ -26,38 +24,48 @@ export default class Layout extends Component {
         return (
             <div>
                 <header className="App-header">
-                                     
-                        <div className="card-content">
-                            <Card body>
-                                <CardText>
-                                    <Row>
-                                        <Col lg="4" md="6">
-                                            <h6>Billing Address</h6>
-                                            <Address
-                                                title={"Billing Address"}
-                                                addressDetails={BillingData[0]}
-                                            />
-                                        </Col>
-                                        <Col lg="4" md="6">
-                                            <h6>Shipping Address</h6>
-                                            <Address
-                                                title={"Shipping Address"}
-                                                addressDetails={ShippingData[0]}
-                                            />
-                                        </Col>
-                                        <Col lg="4" md="6">
 
-                                        </Col>
-                                    </Row>
-                                </CardText>
-                            </Card>
-                        </div>
+                    <div className="card-content">
+                        <Card body>
+                            <CardText>
+                                <Row>
+                                    <Col lg="4" md="6">
+                                        <h6>Billing Address</h6>
+                                        <Address
+                                            title={"Billing Address"}
+                                            addressDetails={BillingData[0]}
+                                        />
+                                    </Col>
+                                    <Col lg="4" md="6">
+                                        <h6>Shipping Address</h6>
+                                        <Address
+                                            title={"Shipping Address"}
+                                            addressDetails={ShippingData[0]}
+                                        />
+                                    </Col>
+                                    <Col lg="4" md="6">
 
-                        <Row>
-                            <Col lg="12" md="12">
-                                asdfghjkl;'sdfghjkl;sdfghjklsadfghjklsdfghjksdfghjksdfghjklsdfghjklsdfghj'
-                            </Col>
-                        </Row>
+                                    </Col>
+                                </Row>
+                            </CardText>
+                        </Card>
+                    </div>
+
+                    <div className="card-content-two">
+                        <Card body className="card-height">
+                            {/* <CardTitle>Special Title Treatment</CardTitle> */}
+                            <CardText>
+                                <Row>
+                                    <Col lg="12" md="12">
+                                        <Product
+                                            data={ProductData} 
+                                        />                                   
+                                    </Col>
+                                </Row>
+                            </CardText>
+                        </Card>
+                    </div>
+
                 </header>
             </div>
         )
