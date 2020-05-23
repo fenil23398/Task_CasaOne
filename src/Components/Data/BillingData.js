@@ -1,4 +1,4 @@
-export const ShippingData = [
+export const BillingData = [
     {
         firstName  : "abc",
         lastName : "Defghi",
@@ -8,6 +8,6 @@ export const ShippingData = [
         state : "Gujarat",
         zipCode : 380007,
         country : "India",
-        date : ''
+        date : '04/02/2019'
     }
 ];
