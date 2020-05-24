@@ -12,6 +12,7 @@ import { addProduct } from "../../Redux/Actions/ProductActions";
 function Product(props) {
     const onAddProduct = () => {
         props.addProduct();
+      
     }
     const onSaveClicked = () => {
         console.log("Updated DataSet is ", props.productData);
