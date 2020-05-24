@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+
+//Internal Files
 import InputValidator from "../../Common/InputHandlers";
 import { customValidations } from "../Data/GeneralMethods";
 import DatePickerComponent from "../../Common/DatePicker";
+
+//Dependency
 import { Form } from 'reactstrap';
 
 export default class Address extends Component {
@@ -33,12 +37,16 @@ export default class Address extends Component {
             }
         }
     }
+
+    //To Check Whether Any Value is not Passed
     validateValues = (value) => {
         if (value === undefined || value === null || value == '')
             return '';
         else
             return value
     }
+    
+    //To Validate Date
     validateDate = (value) => {
         if (value === undefined || value === null || value == '')
             return '';
@@ -47,8 +55,8 @@ export default class Address extends Component {
       
     }
 
+    //When Input box de-selected Check Validations
     handleBlur = (field) => {
-        console.log("handleBlur field", field, "event ");
         //Need to copy old Touched state first and dn update field
         this.setState({
             touched: {
@@ -58,9 +66,9 @@ export default class Address extends Component {
         })
     }
 
-    
+   //After Every Event validate Errors 
     validate = (addressObj) => {
-        console.log("Inside Validate ",this.state.touched);
+      //  console.log("Inside Validate ",this.state.touched);
         const errors = {
             firstName: '',
             lastName: '',
@@ -92,6 +100,8 @@ export default class Address extends Component {
         
         return errors;
     }
+
+    //On Any Change inside CheckBox
     handleInputChange = (event) => {
         const value = event.target.value;
         const name = event.target.name;
@@ -103,8 +113,9 @@ export default class Address extends Component {
             }
         })
     }
+
+    //Date Change Event
     dateChange = (date) => {
-      console.log("Selected Date ",date);
       this.setState({
         address : {
             ...this.state.address,
@@ -112,9 +123,10 @@ export default class Address extends Component {
         }
       })
     }
+
+    //Validate Values and Store in State
     componentDidMount() {
         const addressDetails = { ...this.props.addressDetails };
-        console.log("Address Details Compo ", addressDetails);
         addressDetails.firstName = this.validateValues(addressDetails.firstName);
         addressDetails.lastname = this.validateValues(addressDetails.lastName);
         addressDetails.addressLine1 = this.validateValues(addressDetails.addressLine1);
@@ -124,11 +136,11 @@ export default class Address extends Component {
         addressDetails.zipCode = this.validateValues(addressDetails.zipCode);
         addressDetails.country = this.validateValues(addressDetails.country);
         addressDetails.date = this.validateDate(addressDetails.date);
-        console.log("First name ",addressDetails.date)
         this.setState({
             address : addressDetails
         })
     }
+
     render() {
         const errors = this.validate(this.state.address)
         const address = {...this.state.address}

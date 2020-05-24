@@ -15,3 +15,8 @@ export const deleteProduct = (id) => ({
   type : DELETE_PRODUCT,
   payLoad : id
 })
+
+export const updateProduct = (product) => ({
+    type : UPDATE_PRODUCT,
+    payLoad : product
+})

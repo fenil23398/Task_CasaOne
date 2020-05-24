@@ -1,33 +1,23 @@
 export const ProductData = [
     {
-        productId  : "a10000c",
-        productName : "Defghi",
+        productId  : "10000c",
+        productName : "Adidas Shooes",
         qty : 3,
         price : 6,
         notes : ''
     },
     {
-        productId  : "a10001c",
+        productId  : "10001c",
         productName : "Blue Bags",
         qty : 4,
         price : 12,
         notes : ''
     },
     {
-        productId  : "a10002c",
-        productName : "Adidas Shooes",
+        productId  : "10002c",
+        productName : "Police Watches",
         qty : 2,
         price : 100,
         notes : ''
     }
 ];
-
-export const deleteProduct = (index) => {
-    ProductData.splice(index,1);
-    console.log("After Deleting Product Data ",ProductData)
-}
-
-
-export const getProducts = () => {
-    return ProductData;
-}

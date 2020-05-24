@@ -1,9 +1,9 @@
 export const BillingData = [
     {
-        firstName  : "abc",
-        lastName : "Defghi",
-        addressLine1 : "dfghj",
-        addressLine2 : "hjkdfyu",
+        firstName  : "Fenil",
+        lastName : "Shah",
+        addressLine1 : "3/4 Vitrag Flat",
+        addressLine2 : "P.t. college Road,Paldi",
         city : "Ahnedabad",
         state : "Gujarat",
         zipCode : 380007,

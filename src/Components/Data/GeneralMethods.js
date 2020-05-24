@@ -4,6 +4,8 @@ const stringRegEx = /^[a-zA-Z]+$/;
 const convertString = (property) => {
     return property+"";
 }
+
+//To Check Null
 export const isNull = (property) => {
    property = convertString(property);
    if(property.length === 0 )
@@ -11,6 +13,7 @@ export const isNull = (property) => {
    return false;
 }
 
+//To validate Min Length
 export const minLength = (property,min) => {
     property = convertString(property);
     if(property.length < min)
@@ -18,6 +21,7 @@ export const minLength = (property,min) => {
     return false;
 }
 
+//To validate Max Length
 export const maxLength = (property,max) => {
     property = convertString(property);
     if(property.length > max)
@@ -25,12 +29,14 @@ export const maxLength = (property,max) => {
     return false;
 }
 
+//To Validate Numbers
 export const validateNumbers = (property) => {
     if(!numberRegExp.test(property))
         return true;
     return false;
 }
 
+//To Validate String
 export const validateString = (property) => {
     if(stringRegEx.test(property))
         return false;
