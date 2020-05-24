@@ -63,7 +63,7 @@ export default class Layout extends Component {
                                 <Row>
                                     <Col lg="12" md="12">
                                         <Product
-                                            data={ProductData} 
+                                            // data={ProductData} 
                                         />                                   
                                     </Col>
                                 </Row>

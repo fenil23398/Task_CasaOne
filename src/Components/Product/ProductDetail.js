@@ -5,11 +5,12 @@ import { Row,Col } from 'reactstrap';
 import  InputAddons  from "../../Common/InputHandlers/InputAdons";
 import InputValidator from "../../Common/InputHandlers";
 import CustomButton from "../../Common/Button";
-import { deleteProduct } from "../Data/ProductData";
 import { customValidations } from "../Data/GeneralMethods";
+import { deleteProduct } from "../../Redux/Actions/ProductActions";
+import { connect } from "react-redux";
 
 
-export default class ProductDetail extends Component {
+class ProductDetail extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -30,8 +31,8 @@ export default class ProductDetail extends Component {
         }
     }
     onDelete = () => {
-        console.log("Delete Product");
-       deleteProduct(1);
+        console.log("Delete Product",this.state.product.productId);
+       this.props.deleteProduct(this.state.product.productId);
     }
     handleBlur = (field) => {
         console.log("handleBlur field", field, "event ");
@@ -180,3 +181,7 @@ export default class ProductDetail extends Component {
         )
     }
 }
+const mapDispatchToProps = {
+    deleteProduct : deleteProduct
+}
+export default connect(null,mapDispatchToProps)(ProductDetail);

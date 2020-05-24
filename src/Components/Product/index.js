@@ -2,17 +2,22 @@ import React from 'react';
 import ProductDetail from "./ProductDetail";
 import { Table, Row, Col } from 'reactstrap';
 import CustomButton from "../../Common/Button";
-
+import { connect } from "react-redux";
+import { addProduct } from "../../Redux/Actions/ProductActions";
 
 function Product(props) {
     const onAddProduct = () => {
         console.log("Add Product Clicked");
+        props.addProduct();
     }
     const onSaveClicked = () => {
         console.log("Save Button Clicked");
     }
     return (
         <div>
+            {
+                //console.log("From Redux Data Fetched is",props.productData.productData)
+            }
             <Row>
                 <Col lg="11" md="11">
                     <Table>
@@ -53,9 +58,10 @@ function Product(props) {
 
                         <tbody>
                             {
-                                props.data.map(product => (
+                                props.productData.map((product,index) => (
                                     <ProductDetail
                                         data={product}
+                                        index={index}
                                     />
                                 )
                                 )
@@ -88,4 +94,15 @@ function Product(props) {
         </div>
     )
 }
-export default Product;
+const mapStateToProps = state =>{
+    console.log("Inside mapStatetoprops only  STate ",state);
+    console.log("Inside mapStatetoprops STate.pro ",state.productData);
+    console.log("Inside mapStatetoprops STate.pro2 ",state.productData.productData);
+    return {
+        productData : state.productData
+    }
+}
+const mapDispatchToProps = {
+    addProduct : addProduct
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Product);
