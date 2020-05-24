@@ -17,7 +17,7 @@ const InputAddons = (props) => {
 
         />
         <InputGroupAddon addonType="append">
-          <InputGroupText className="bg-primary text-white">$</InputGroupText>
+          <InputGroupText className="bg-primary text-white">#</InputGroupText>
         </InputGroupAddon>
         <FormFeedback invalid>
                   {Error}
