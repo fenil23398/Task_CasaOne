@@ -21,7 +21,11 @@ export const ProductDataReducer = (state = initialState.productData, action) => 
             console.log("Inside Delete Data ", action.payLoad)
             //return state.filter((prod) => prod.productId !== action.payLoad )
             return [...state.slice(0, action.payLoad), ...state.slice(action.payLoad + 1)]
-        
+           
+            // let newState = [...state];
+            // newState.splice(action.index, 1);
+            // return newState;
+
         case UPDATE_PRODUCT:
             return state.map((prod, i) => prod.productId === action.payLoad.productId
                 ?

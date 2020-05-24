@@ -1,6 +1,6 @@
 const numberRegExp = /^\d+$/;
 const stringRegEx = /^[a-zA-Z]+$/;
-
+const stringSpaceRegEx = /^[a-zA-Z ]*$/;
 const convertString = (property) => {
     return property+"";
 }
@@ -43,13 +43,20 @@ export const validateString = (property) => {
     return true;
 }
 
+export const validateStringWithSpace = (property) => {
+    if(stringSpaceRegEx.test(property))
+        return false;
+    return true;
+}
 //Arg 1 Property Name to check For
 //Arg2 Required Or not
 //Arg3 Min Length Required if not dn pass 0
 //Arg4 Max Length Required if not dn pass 0
 //Arg5 1 if want to check only Numbers else 0
 //Arg6 1 if want to checkonly string else 0
-export const  customValidations = (property,nullCheck,minLen,maxLen,isNumber,isString) => {
+//Arg7 If want to check String and space only 
+export const  customValidations = (property,nullCheck,minLen,maxLen,isNumber,isString,
+    isStringWithSpace) => {
     console.log("inside Custome Validations ",property)
     if(nullCheck && isNull(property))
         return "Field is required"
@@ -61,6 +68,8 @@ export const  customValidations = (property,nullCheck,minLen,maxLen,isNumber,isS
         return "Only Numbers are Valid";
     else if(isString && validateString(property))
         return "Only Characters Allowed"
+    else if(isStringWithSpace && validateStringWithSpace(property))
+        return "Illegal Values"
     else 
         return "";
 }

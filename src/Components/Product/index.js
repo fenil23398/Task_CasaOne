@@ -25,12 +25,16 @@ function Product(props) {
 
                         <thead>
                             <tr className="row">
-                                <th className="col-md-2" style={{ textAlign: 'left' }}>
-                                    Product Id
-                                </th>
-                                <th className="col-md-3" style={{ textAlign: 'left' }}>
-                                    Product Name
-                                </th>
+                                <div className="col-md-5">
+                                    <div className="row">
+                                        <th className="col-md-5" style={{ textAlign: 'left' }}>
+                                            Product Id
+                                        </th>
+                                        <th className="col-md-7" style={{ textAlign: 'left' }}>
+                                            Product Name
+                                        </th>
+                                    </div>
+                                </div>
                                 <div className="col-md-4">
                                     <div className="row">
                                         <th className="col-md-4" style={{ textAlign: 'left' }}>
@@ -93,9 +97,9 @@ function Product(props) {
     )
 }
 const mapStateToProps = state => {
-    console.log("Inside mapStatetoprops only  STate ", state);
-    console.log("Inside mapStatetoprops STate.pro ", state.productData);
-    console.log("Inside mapStatetoprops STate.pro2 ", state.productData.productData);
+    // console.log("Inside mapStatetoprops only  STate ", state);
+    // console.log("Inside mapStatetoprops STate.pro ", state.productData);
+    // console.log("Inside mapStatetoprops STate.pro2 ", state.productData.productData);
     return {
         productData: state.productData
     }

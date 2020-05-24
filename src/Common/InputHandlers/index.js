@@ -8,13 +8,10 @@ import {
     }from 'reactstrap';
 
 const InputValidator = (props) => {
-    console.log("Props Values r ",props);
     const {Value,PlaceHolder,Name,Type,Error,ReadOnly} = props;
     return (
         <div className="App">
-            {console.log("Value ",PlaceHolder )}
            <FormGroup>
-              
               <Input 
                    type={Type}
                    name={Name}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
+import { InputGroup, InputGroupAddon, InputGroupText, Input,FormFeedback } from 'reactstrap';
 
 const InputAddons = (props) => {
     const {Value,PlaceHolder,Name,Type,Error} = props;
@@ -17,8 +17,11 @@ const InputAddons = (props) => {
 
         />
         <InputGroupAddon addonType="append">
-          <InputGroupText>$</InputGroupText>
+          <InputGroupText className="bg-primary text-white">$</InputGroupText>
         </InputGroupAddon>
+        <FormFeedback invalid>
+                  {Error}
+                </FormFeedback>  
       </InputGroup>
     )
 };

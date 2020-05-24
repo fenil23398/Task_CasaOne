@@ -88,10 +88,17 @@ class ProductDetail extends Component {
             errors.price = customValidations(productObj.price, 1, 1, 0, 1);
 
         if (touched.productName)
-            errors.productName = customValidations(productObj.productName, 1, 1, 0, 0, 1);
+            errors.productName = customValidations(productObj.productName, 1, 1, 0, 0, 0, 1);
 
         if (touched.qty)
             errors.qty = customValidations(productObj.qty, 1, 1, 0, 1);
+        
+        if(touched.productId){
+            if(this.props.productData.some(prod => prod.productId === this.state.product.productId && 
+                this.state.product.productId !== '')){
+                errors.productId = "ProductId must be Unique"
+            }
+        }
 
         return errors;
     }
@@ -102,29 +109,33 @@ class ProductDetail extends Component {
         return (
 
             <tr className="row">
-                <td className="col-md-2" >
-                    <InputAddons
-                        Type={"text"}
-                        Name={"productId"}
-                        PlaceHolder={"Enter Product Id"}
-                        Value={productDetail.productId}
-                        BlurEvent={this.handleBlur}
-                        ChangeEvent={this.handleInputChange}
-                        Error={errors.productId}
-                    />
-                </td>
+                <div className="col-md-5">
+                    <div className="row">
+                        <td className="col-md-5" >
+                            <InputAddons
+                                Type={"text"}
+                                Name={"productId"}
+                                PlaceHolder={"Enter Product Id"}
+                                Value={productDetail.productId}
+                                BlurEvent={this.handleBlur}
+                                ChangeEvent={this.handleInputChange}
+                                Error={errors.productId}
+                            />
+                        </td>
 
-                <td className="col-md-3" style={{ textAlign: 'left' }}>
-                    <InputValidator
-                        Type={"text"}
-                        Name={"productName"}
-                        PlaceHolder={"Enter Product Name"}
-                        Value={productDetail.productName}
-                        BlurEvent={this.handleBlur}
-                        ChangeEvent={this.handleInputChange}
-                        Error={errors.productName}
-                    />
-                </td>
+                        <td className="col-md-7" style={{ textAlign: 'left' }}>
+                            <InputValidator
+                                Type={"text"}
+                                Name={"productName"}
+                                PlaceHolder={"Enter Product Name"}
+                                Value={productDetail.productName}
+                                BlurEvent={this.handleBlur}
+                                ChangeEvent={this.handleInputChange}
+                                Error={errors.productName}
+                            />
+                        </td>
+                    </div>
+                </div>
                 <div className="col-md-4">
                     <div className="row">
                         <td className="col-md-4" style={{ textAlign: 'left' }}>
@@ -192,4 +203,9 @@ const mapDispatchToProps = {
     deleteProduct: deleteProduct,
     updateProduct: updateProduct
 }
-export default connect(null, mapDispatchToProps)(ProductDetail);
+const mapStateToProps = state => {
+    return {
+        productData: state.productData
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);
