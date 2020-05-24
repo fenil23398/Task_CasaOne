@@ -21,3 +21,24 @@ export const ProductData = [
         notes : ''
     }
 ];
+
+export const deleteProduct = (index) => {
+    ProductData.splice(index,1);
+    console.log("After Deleting Product Data ",ProductData)
+}
+
+export const addProdct = () => {
+    let prod = {
+        productId : "",
+        productName : "",
+        qty : "",
+        price : "",
+        notes : "",
+    }
+    ProductData = ProductData.push(prod)
+    console.log("After Adding data ",ProductData);
+}
+
+export const getProducts = () => {
+    return ProductData;
+}

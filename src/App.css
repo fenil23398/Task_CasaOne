@@ -41,3 +41,10 @@
 .table thead th {
   border-bottom:  0px !important;
 }
+
+textarea.form-control {
+  height : calc(1.7em + .90rem + 2px) !important;
+}
+th{
+  border-top : 0pc !important ;
+}

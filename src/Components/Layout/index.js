@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 //Dependency
 import {
-    Container,
     Row,
     Col,
     Card,
@@ -19,6 +18,12 @@ import { ProductData } from "../Data/ProductData";
 import { ShippingData } from "../Data/ShippingData";
 
 export default class Layout extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            productData : ProductData 
+        }
+    }
     render() {
 
         return (

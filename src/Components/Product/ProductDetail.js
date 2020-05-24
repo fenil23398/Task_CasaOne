@@ -5,6 +5,7 @@ import { Row,Col } from 'reactstrap';
 import  InputAddons  from "../../Common/InputHandlers/InputAdons";
 import InputValidator from "../../Common/InputHandlers";
 import CustomButton from "../../Common/Button";
+import { deleteProduct } from "../Data/ProductData";
 import { customValidations } from "../Data/GeneralMethods";
 
 
@@ -29,7 +30,8 @@ export default class ProductDetail extends Component {
         }
     }
     onDelete = () => {
-        console.log("Inside Delete");
+        console.log("Delete Product");
+       deleteProduct(1);
     }
     handleBlur = (field) => {
         console.log("handleBlur field", field, "event ");
