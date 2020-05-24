@@ -13,12 +13,12 @@ export const ProductDataReducer = (state = initialState.productData, action) => 
                 productData: action.payLoad
             }
         case ADD_PRODUCT:
-            console.log("PaylOaded data ", action.payLoad);
-            console.log("State Value ", state);
+            // console.log("PaylOaded data ", action.payLoad);
+            // console.log("State Value ", state);
             return state.concat(action.payLoad)
 
         case DELETE_PRODUCT:
-            console.log("Inside Delete Data ", action.payLoad)
+            //console.log("Inside Delete Data ", action.payLoad)
             //return state.filter((prod) => prod.productId !== action.payLoad )
             return [...state.slice(0, action.payLoad), ...state.slice(action.payLoad + 1)]
            

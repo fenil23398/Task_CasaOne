@@ -94,8 +94,8 @@ class ProductDetail extends Component {
             errors.qty = customValidations(productObj.qty, 1, 1, 0, 1);
         
         if(touched.productId){
-            if(this.props.productData.some(prod => prod.productId === this.state.product.productId && 
-                this.state.product.productId !== '')){
+            if(this.props.productData.some((prod,i) => prod.productId === this.state.product.productId
+             && this.state.product.productId !== '' && i!==this.props.index)){
                 errors.productId = "ProductId must be Unique"
             }
         }

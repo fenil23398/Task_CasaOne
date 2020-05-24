@@ -96,7 +96,7 @@ export default class Address extends Component {
         if(touched.addressLine1)
             errors.addressLine1 = customValidations(addressObj.addressLine1,1,4,0,0,0);
         if(touched.addressLine2)
-            errors.addressLine2 = customValidations(addressObj.addressLine2,1,4,0,0,0,1);
+            errors.addressLine2 = customValidations(addressObj.addressLine2,1,4,0,0,0);
         
         return errors;
     }
