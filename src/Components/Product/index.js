@@ -18,36 +18,35 @@ function Product(props) {
                     <Table>
 
                         <thead>
-                            <tr>
-                                <th style={{ textAlign: 'left' }}>Product Id</th>
-                                <th style={{ textAlign: 'left' }}>Product Name</th>
-                                <th style={{ textAlign: 'left' }}>Qty</th>
-                                <th style={{ textAlign: 'left' }}>Unit Price</th>
-                                <th style={{ textAlign: 'left' }}>Total Price</th>
-                                <th style={{ textAlign: 'left' }}>Notes</th>
-                                <th></th>
+                            <tr className="row">
+                                <th className = "col-md-2" style={{ textAlign: 'left' }}>
+                                    Product Id
+                                </th>
+                                <th className = "col-md-3" style={{ textAlign: 'left' }}>
+                                    Product Name
+                                </th>
+                                <div className = "col-md-4">
+                                <div className="row">
+                                <th className = "col-md-4" style={{ textAlign: 'left' }}>
+                                    Qty
+                                </th>
+                                <th className = "col-md-4"style={{ textAlign: 'left' }}>
+                                    Unit Price
+                                </th>
+                                <th className = "col-md-4" style={{ textAlign: 'left' }}>
+                                    Total Price
+                                </th>
+                                </div>
+                                </div>
+                                <th className = "col-md-2" style={{ textAlign: 'left' }}>
+                                    Notes
+                                </th>
+                                <th className = "col-md-1" style={{ textAlign: 'left' }}>
+                                    
+                                </th>
+                                
 
-                                {/* <Col lg="2" md="2">
-
-                                </Col>
-                                <Col lg="3" md="3">
-                                    <th>Product Name</th>
-                                </Col>
-                                <Col lg="1" md="1">
-                                    <th>Qty</th>
-                                </Col>
-                                <Col lg="1" md="1">
-                                    <th>Unit Price</th>
-                                </Col>
-                                <Col lg="1" md="1">
-                                    <th>Total Price</th>
-                                </Col>
-                                <Col lg="2" md="2">
-                                    <th>Notes</th>
-                                </Col>
-                                <Col lg="1" md="1">
-                                    <th>Total Price</th>
-                                </Col> */}
+                              
                             </tr>
 
                         </thead>
@@ -61,19 +60,29 @@ function Product(props) {
                                 )
                                 )
                             }
+                            <div className="alignLeft">
                             <CustomButton
                                 ButtonClicked={onAddProduct}
                                 Text={"ADD PRODUCT"}
                                 SizeForButton={"sm"}
                                 ButtonColor = {"primary"}
                             />
+                            </div>
                         </tbody>
                     </Table>
-                    <CustomButton
-                        ButtonClicked={onSaveClicked}
-                        Text={"SAVE"}
-                        ButtonColor = {"primary"}
-                    />
+
+                    <div className="row">
+                        <div className="col-md-11">
+                           
+                         </div>
+                         <CustomButton
+                                ButtonClicked={onSaveClicked}
+                                Text={"SAVE"}
+                                SizeForButton={"lg"}
+                                ButtonColor = {"primary"}
+                        />
+                    </div>
+                     
                 </Col>
             </Row>
         </div>

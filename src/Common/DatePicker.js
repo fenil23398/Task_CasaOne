@@ -7,9 +7,13 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 
-function DatePickerComponent() {
+function DatePickerComponent(props) {
   return (
-    <DatePicker />
+    <DatePicker
+      selected = {props.DateSelected !== '' && props.DateSelected}
+      onChange = {(e) => props.DateChange(e)}
+      placeholderText = "Select Date"
+    />
   );
 }
 

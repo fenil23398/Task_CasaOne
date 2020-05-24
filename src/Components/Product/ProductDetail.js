@@ -90,8 +90,9 @@ export default class ProductDetail extends Component {
         const errors = this.validate(this.state.product)
         const productDetail = {...this.state.product}
         return (
-           <tr>
-             <td style={{ textAlign: 'left' }}>
+           
+           <tr className = "row">
+             <td className = "col-md-2" >
                 <InputAddons
                     Type = {"text"}
                     Name = {"productId"}
@@ -103,7 +104,7 @@ export default class ProductDetail extends Component {
                 />
             </td>
            
-            <td  style={{ textAlign: 'left' }}>
+            <td  className = "col-md-3" style={{ textAlign: 'left' }}>
                 <InputValidator 
                     Type = {"text"}
                     Name = {"productName"}
@@ -114,7 +115,9 @@ export default class ProductDetail extends Component {
                     Error = {errors.productName}
                  />
             </td>
-            <td  style={{ textAlign: 'left' }}>
+            <div className="col-md-4">
+                <div className="row">
+            <td className = "col-md-4" style={{ textAlign: 'left' }}>
                  <InputValidator 
                     Type = {"text"}
                     Name = {"qty"}
@@ -125,7 +128,7 @@ export default class ProductDetail extends Component {
                     Error = {errors.qty}
                  />
             </td>
-            <td  style={{ textAlign: 'left' }}>
+            <td className = "col-md-4" style={{ textAlign: 'left' }}>
                 <InputValidator 
                     Type = {"text"}
                     Name = {"price"}
@@ -137,7 +140,7 @@ export default class ProductDetail extends Component {
                  />
             </td>
 
-            <td  style={{ textAlign: 'left' }}>
+            <td className = "col-md-4" style={{ textAlign: 'left' }}>
                 <InputValidator 
                     Type = {"text"}
                     Name = {"totalPrice"}
@@ -149,8 +152,9 @@ export default class ProductDetail extends Component {
                     Error = {''}
                  />
             </td>
-
-            <td  style={{ textAlign: 'left' }}>
+            </div>
+            </div>
+            <td className = "col-md-2" >
                 <InputValidator 
                     Type = {"textarea"}
                     Name = {"notes"}
@@ -162,7 +166,7 @@ export default class ProductDetail extends Component {
                  />
             </td>
 
-            <td  style={{ textAlign: 'left' }}>
+            <td  className="col-md-1" style={{ textAlign: 'left' }}>
                 <CustomButton
                         ButtonClicked={this.onDelete}
                         Text={"Delete"}
@@ -171,7 +175,6 @@ export default class ProductDetail extends Component {
             </td>
             
           </tr>
-          
         )
     }
 }

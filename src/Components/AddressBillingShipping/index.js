@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import InputValidator from "../../Common/InputHandlers";
 import { customValidations } from "../Data/GeneralMethods";
+import DatePickerComponent from "../../Common/DatePicker";
 import { Form } from 'reactstrap';
 
 export default class Address extends Component {
@@ -40,9 +41,10 @@ export default class Address extends Component {
     }
     validateDate = (value) => {
         if (value === undefined || value === null || value == '')
-            return 'Select Date';
+            return '';
         else
-            return value
+          return new Date(value) 
+      
     }
 
     handleBlur = (field) => {
@@ -101,6 +103,15 @@ export default class Address extends Component {
             }
         })
     }
+    dateChange = (date) => {
+      console.log("Selected Date ",date);
+      this.setState({
+        address : {
+            ...this.state.address,
+            date : date
+        }
+      })
+    }
     componentDidMount() {
         const addressDetails = { ...this.props.addressDetails };
         console.log("Address Details Compo ", addressDetails);
@@ -113,7 +124,7 @@ export default class Address extends Component {
         addressDetails.zipCode = this.validateValues(addressDetails.zipCode);
         addressDetails.country = this.validateValues(addressDetails.country);
         addressDetails.date = this.validateDate(addressDetails.date);
-        console.log("First name ",addressDetails.firstName)
+        console.log("First name ",addressDetails.date)
         this.setState({
             address : addressDetails
         })
@@ -121,8 +132,7 @@ export default class Address extends Component {
     render() {
         const errors = this.validate(this.state.address)
         const address = {...this.state.address}
-        console.log("Errors Object ",errors)
-        console.log("Touched Object Inside ",this.state.touched)
+      
         return (
            <Form>
                {/* FirstName */}
@@ -212,6 +222,20 @@ export default class Address extends Component {
                     ChangeEvent = {this.handleInputChange}
                     Error = {errors.country}
                  />
+
+                 {/* DatePicker */}
+                 <div className="alignLeft">
+                     {
+                         this.props.title === "Shipping" ? 
+                         <h6>Expected Delivery</h6>
+                         :
+                         <h6>Order Date</h6>
+                     }
+                     <DatePickerComponent
+                         DateSelected = {address.date}
+                         DateChange = {this.dateChange}
+                    />
+                 </div>
            </Form>
         )
     }

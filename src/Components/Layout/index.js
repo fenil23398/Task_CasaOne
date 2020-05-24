@@ -30,16 +30,16 @@ export default class Layout extends Component {
                             <CardText>
                                 <Row>
                                     <Col lg="4" md="6">
-                                        <h6>Billing Address</h6>
+                                        <h6 className="alignLeft">Billing Address</h6>
                                         <Address
-                                            title={"Billing Address"}
+                                            title={"Billing"}
                                             addressDetails={BillingData[0]}
                                         />
                                     </Col>
                                     <Col lg="4" md="6">
-                                        <h6>Shipping Address</h6>
+                                        <h6 className="alignLeft">Shipping Address</h6>
                                         <Address
-                                            title={"Shipping Address"}
+                                            title={"Shipping"}
                                             addressDetails={ShippingData[0]}
                                         />
                                     </Col>
